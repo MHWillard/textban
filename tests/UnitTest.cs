@@ -37,5 +37,24 @@ namespace tests
             // Assert:
             Assert.Equal("Hello World", textBox.Text);
         }
+
+        [AvaloniaFact]
+        public void Should_Have_Four_Category_Dropdowns()
+        {
+            //Arrange
+            var categories = new ComboBox();
+            var window = new Window { Content = categories };
+
+            //Act
+
+            //Assert
+            //Assert each category section exists and is a dropdown.
+            Assert.Equal("Ready", ready_dropdown.Text);
+            Assert.Equal("Waiting", waiting_dropdown.Text);
+            Assert.Equal("Backlog", backlog_dropdown.Text);
+            Assert.Equal("Done", done_dropdown.Text);
+
+
+        }
     }
 }
