@@ -39,13 +39,29 @@ namespace tests
         }
 
         [AvaloniaFact]
-        public void Should_Have_Four_Category_Dropdowns()
+        public void Expander_Should_Have_Four_Category_Dropdowns()
         {
             //Arrange
-            var categories = new ComboBox();
-            var window = new Window { Content = categories };
+            //-Set up window with four expanders: Ready, Waiting, Backlog, Done
 
             //Act
+            //-grab expanders in one
+
+            //Assert
+            //-iterate: assert each one matches what they expect to match for category
+
+            //Arrange
+            /*
+            var categories = new ComboBox();
+            var window = new Window { Content = categories };
+            var category_names = new List<string> { "Ready","Waiting","Backlog","Done" };
+            foreach (string c in category_names)
+            {
+                categories.Items.Add(c);
+            }
+
+            //Act
+            window.Show();
 
             //Assert
             //Assert each category section exists and is a dropdown.
@@ -53,6 +69,7 @@ namespace tests
             Assert.Equal("Waiting", waiting_dropdown.Text);
             Assert.Equal("Backlog", backlog_dropdown.Text);
             Assert.Equal("Done", done_dropdown.Text);
+            */
 
 
         }

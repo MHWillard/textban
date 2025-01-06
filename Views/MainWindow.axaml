@@ -21,7 +21,48 @@
           x:Name="Root">
 
         <!-- This is our title text block. We use Style.Classes to style it accordingly -->
-        <TextBlock Text="My ToDo-List" Classes="h1" />
+        
+
+		<StackPanel>
+			<TextBlock Text="Textban" Classes="h1" VerticalAlignment="Top" />
+			
+		<Expander MinWidth="290">
+			<Expander.Header>
+				Ready
+			</Expander.Header>
+			<Grid>
+				<TextBlock Grid.Row="1" Grid.Column="0"
+						   VerticalAlignment="Center">Case sensitive?</TextBlock>
+			</Grid>
+		</Expander>
+			<Expander MinWidth="290">
+			<Expander.Header>
+				Waiting
+			</Expander.Header>
+			<Grid>
+				<TextBlock Grid.Row="1" Grid.Column="0"
+						   VerticalAlignment="Center">Case sensitive?</TextBlock>
+			</Grid>
+		</Expander>
+			<Expander MinWidth="290">
+			<Expander.Header>
+				Backlog
+			</Expander.Header>
+			<Grid>
+				<TextBlock Grid.Row="1" Grid.Column="0"
+						   VerticalAlignment="Center">Case sensitive?</TextBlock>
+			</Grid>
+		</Expander>
+			<Expander MinWidth="290">
+			<Expander.Header>
+				Done
+			</Expander.Header>
+			<Grid>
+				<TextBlock Grid.Row="1" Grid.Column="0"
+						   VerticalAlignment="Center">Case sensitive?</TextBlock>
+			</Grid>
+		</Expander>
+		</StackPanel>
 
         <ScrollViewer Grid.Row="1">
             <!-- This ItemsControl show all added ToDoItems. -->
