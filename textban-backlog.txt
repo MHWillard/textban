@@ -10,11 +10,9 @@ MVP for txtban:
 -categories: ready, waiting, backlog, done: top to bottom column
 
 MVP BACKLOG:
--There are four catergories: Ready, Waiting, Backlog, Done.
--Each category is an expandable dropdown menu.
 -Each task can be dragged into Ready, Waiting, Backlog, Done categories.
--Each task has a button that deletes the task.
 -Each task has a button that edits the text of the task.
+-There is a scrollbar on the right side if the categories are expanded off-screen for scrolling up and down.
 
 =DONE=
 -Set up to-do list example for Avalonia UI and push to git.
@@ -22,3 +20,7 @@ MVP BACKLOG:
 -UI reads tasks.txt text file and loads each line as text into UI.
 -New tasks can be added in UI text field which updates tasks.txt.
 -Tasks persist even after the window is closed.
+-There are four catergories: Ready, Waiting, Backlog, Done.
+-Each category is an expandable dropdown menu.
+-When a task is added, it appears near the end of the current backlog of tasks under the Backlog category.
+-Each task has a button that deletes the task.

@@ -37,41 +37,5 @@ namespace tests
             // Assert:
             Assert.Equal("Hello World", textBox.Text);
         }
-
-        [AvaloniaFact]
-        public void Expander_Should_Have_Four_Category_Dropdowns()
-        {
-            //Arrange
-            //-Set up window with four expanders: Ready, Waiting, Backlog, Done
-
-            //Act
-            //-grab expanders in one
-
-            //Assert
-            //-iterate: assert each one matches what they expect to match for category
-
-            //Arrange
-            /*
-            var categories = new ComboBox();
-            var window = new Window { Content = categories };
-            var category_names = new List<string> { "Ready","Waiting","Backlog","Done" };
-            foreach (string c in category_names)
-            {
-                categories.Items.Add(c);
-            }
-
-            //Act
-            window.Show();
-
-            //Assert
-            //Assert each category section exists and is a dropdown.
-            Assert.Equal("Ready", ready_dropdown.Text);
-            Assert.Equal("Waiting", waiting_dropdown.Text);
-            Assert.Equal("Backlog", backlog_dropdown.Text);
-            Assert.Equal("Done", done_dropdown.Text);
-            */
-
-
-        }
     }
 }
