@@ -11,6 +11,14 @@ namespace textban.Services
 {
     public class ListManipulationService
     {
-        public void moveItemToTaskList(ToDoItem TaskItem, ObservableCollection<ToDoItemViewModel> ToDoItems, ObservableCollection<ToDoItemViewModel> ReadyItems) { }
+        public void moveItemToTaskList(ToDoItemViewModel TaskItem, ObservableCollection<ToDoItemViewModel> AddList, ObservableCollection<ToDoItemViewModel> RemoveList)
+        {
+            //add TaskItem to ReadyItems
+            AddList.Add(TaskItem);
+            
+            //remove same item from ToDoItems
+            RemoveList.Remove(TaskItem);
+        
+        }
     }
 }

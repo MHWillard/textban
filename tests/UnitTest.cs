@@ -12,42 +12,11 @@ namespace tests
     public class UnitTest
     {
         [Fact]
-        public void PassingTest()
-        {
-            int Add(int x, int y)
-            {
-                return x + y;
-            }
-
-            Assert.Equal(4, Add(2, 2));
-        }
-
-        [AvaloniaFact]
-        public void Should_Type_Text_Into_TextBox()
-        {
-            // Setup controls:
-            var textBox = new TextBox();
-            var window = new Window { Content = textBox };
-
-            // Open window:
-            window.Show();
-
-            // Focus text box:
-            textBox.Focus();
-
-            // Simulate text input:
-            window.KeyTextInput("Hello World");
-
-            // Assert:
-            Assert.Equal("Hello World", textBox.Text);
-        }
-
-        [Fact]
          public void ShouldMoveTaskItem()
         {
             //moveItemToTaskList, given two task lists for Backlog and Ready, item moved from Backlog should remove it and then appear in the Ready list
             //Arrange
-            string TaskContent = "Walk dog";
+            ToDoItemViewModel TaskItem = new ToDoItemViewModel() { Content = "Walk dog" };
 
             var ToDoItems = new ObservableCollection<ToDoItemViewModel>(new[]
             {
@@ -62,11 +31,11 @@ namespace tests
             ListManipulationService ListService = new ListManipulationService();
 
             //Act
-            ListService.moveItemToTaskList(TaskContent, ToDoItems, ReadyItems);
+            ListService.moveItemToTaskList(TaskItem, ToDoItems, ReadyItems);
 
             //Assert
-            Assert.Contains(TaskContent, ReadyItems);
-            Assert.DoesNotContain(TaskContent, ToDoItems);
+            Assert.Contains(TaskItem, ReadyItems);
+            Assert.DoesNotContain(TaskItem, ToDoItems);
         }
     }
 }
