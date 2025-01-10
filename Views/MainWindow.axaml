@@ -46,24 +46,75 @@
 			
 			<ScrollViewer VerticalScrollBarVisibility="Auto">
 				<StackPanel Height="420">
-		<Expander MinWidth="290">
-			<Expander.Header>
-				Ready
-			</Expander.Header>
-			<Grid>
-				<TextBlock Grid.Row="1" Grid.Column="0"
-						   VerticalAlignment="Center">Case sensitive?</TextBlock>
-			</Grid>
-		</Expander>
-			<Expander MinWidth="290">
-			<Expander.Header>
-				Waiting
-			</Expander.Header>
-			<Grid>
-				<TextBlock Grid.Row="1" Grid.Column="0"
-						   VerticalAlignment="Center">Case sensitive?</TextBlock>
-			</Grid>
-		</Expander>
+
+					<Expander MinWidth="290">
+						<Expander.Header>
+							Ready
+						</Expander.Header>
+						<Grid>
+							<ScrollViewer Grid.Row="1">
+								<!-- This ItemsControl show all added ToDoItems. -->
+								<!-- It needs to be placed inside a ScrollViewer because other than a ListBox it has not its own -->
+								<ItemsControl ItemsSource="{Binding ReadyItems}">
+									<ItemsControl.ItemTemplate>
+										<!-- The ItemTemplate defines how each item should be represented -->
+										<!-- Our Item will be represented by a CheckBox and a Delete-Button -->
+										<DataTemplate DataType="vm:ToDoItemViewModel">
+											<Grid ColumnDefinitions="*, Auto">
+												<CheckBox IsChecked="{Binding IsChecked}"
+														  Content="{Binding Content}" />
+
+												<!-- Note how we use the Root-Grid to get the MainViewModel here. As we use compiled bindings we have to cast the DataContext -->
+												<!-- The command parameter is the local ToDoItemViewModel being processed -->
+												<Button Grid.Column="1"
+														Command="{Binding #Root.((vm:MainViewModel)DataContext).RemoveItemCommand}"
+														CommandParameter="{Binding .}">
+													<PathIcon Data="{DynamicResource DeleteIconData}"
+															  Height="15"
+															  Foreground="Red" />
+												</Button>
+											</Grid>
+										</DataTemplate>
+									</ItemsControl.ItemTemplate>
+								</ItemsControl>
+							</ScrollViewer>
+						</Grid>
+					</Expander>
+
+					<Expander MinWidth="290">
+						<Expander.Header>
+							Waiting
+						</Expander.Header>
+						<Grid>
+							<ScrollViewer Grid.Row="1">
+								<!-- This ItemsControl show all added ToDoItems. -->
+								<!-- It needs to be placed inside a ScrollViewer because other than a ListBox it has not its own -->
+								<ItemsControl ItemsSource="{Binding WaitingItems}">
+									<ItemsControl.ItemTemplate>
+										<!-- The ItemTemplate defines how each item should be represented -->
+										<!-- Our Item will be represented by a CheckBox and a Delete-Button -->
+										<DataTemplate DataType="vm:ToDoItemViewModel">
+											<Grid ColumnDefinitions="*, Auto">
+												<CheckBox IsChecked="{Binding IsChecked}"
+														  Content="{Binding Content}" />
+
+												<!-- Note how we use the Root-Grid to get the MainViewModel here. As we use compiled bindings we have to cast the DataContext -->
+												<!-- The command parameter is the local ToDoItemViewModel being processed -->
+												<Button Grid.Column="1"
+														Command="{Binding #Root.((vm:MainViewModel)DataContext).RemoveItemCommand}"
+														CommandParameter="{Binding .}">
+													<PathIcon Data="{DynamicResource DeleteIconData}"
+															  Height="15"
+															  Foreground="Red" />
+												</Button>
+											</Grid>
+										</DataTemplate>
+									</ItemsControl.ItemTemplate>
+								</ItemsControl>
+							</ScrollViewer>
+						</Grid>
+					</Expander>
+					
 			<Expander MinWidth="290">
 			<Expander.Header>
 				Backlog
@@ -97,15 +148,41 @@
 				</ScrollViewer>
 			</Grid>
 		</Expander>
-			<Expander MinWidth="290">
-			<Expander.Header>
-				Done
-			</Expander.Header>
-			<Grid>
-				<TextBlock Grid.Row="1" Grid.Column="0"
-						   VerticalAlignment="Center">Case sensitive?</TextBlock>
-			</Grid>
-		</Expander>
+
+					<Expander MinWidth="290">
+						<Expander.Header>
+							Done
+						</Expander.Header>
+						<Grid>
+							<ScrollViewer Grid.Row="1">
+								<!-- This ItemsControl show all added ToDoItems. -->
+								<!-- It needs to be placed inside a ScrollViewer because other than a ListBox it has not its own -->
+								<ItemsControl ItemsSource="{Binding DoneItems}">
+									<ItemsControl.ItemTemplate>
+										<!-- The ItemTemplate defines how each item should be represented -->
+										<!-- Our Item will be represented by a CheckBox and a Delete-Button -->
+										<DataTemplate DataType="vm:ToDoItemViewModel">
+											<Grid ColumnDefinitions="*, Auto">
+												<CheckBox IsChecked="{Binding IsChecked}"
+														  Content="{Binding Content}" />
+
+												<!-- Note how we use the Root-Grid to get the MainViewModel here. As we use compiled bindings we have to cast the DataContext -->
+												<!-- The command parameter is the local ToDoItemViewModel being processed -->
+												<Button Grid.Column="1"
+														Command="{Binding #Root.((vm:MainViewModel)DataContext).RemoveItemCommand}"
+														CommandParameter="{Binding .}">
+													<PathIcon Data="{DynamicResource DeleteIconData}"
+															  Height="15"
+															  Foreground="Red" />
+												</Button>
+											</Grid>
+										</DataTemplate>
+									</ItemsControl.ItemTemplate>
+								</ItemsControl>
+							</ScrollViewer>
+						</Grid>
+					</Expander>
+					
 				</StackPanel>
 			</ScrollViewer>
 

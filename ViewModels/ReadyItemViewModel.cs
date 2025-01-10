@@ -14,12 +14,12 @@ namespace textban.ViewModels;
 /// <summary>
 /// This is a ViewModel which represents a <see cref="Models.ToDoItem"/>
 /// </summary>
-public partial class ToDoItemViewModel : ViewModelBase
+public partial class ReadyItemViewModel : ViewModelBase
 {
     /// <summary>
-    /// Creates a new blank ToDoItemViewModel
+    /// Creates a new blank ReadyItemViewModel
     /// </summary>
-    public ToDoItemViewModel()
+    public ReadyItemViewModel()
     {
         // empty
     }
@@ -28,7 +28,7 @@ public partial class ToDoItemViewModel : ViewModelBase
     /// Creates a new ReadyItemViewModel for the given <see cref="Models.ToDoItem"/>
     /// </summary>
     /// <param name="item">The item to load</param>
-    public ToDoItemViewModel(ToDoItem item)
+    public ReadyItemViewModel(ToDoItem item)
     {
         // Init the properties with the given values
         IsChecked = item.IsChecked;

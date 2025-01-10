@@ -23,6 +23,22 @@ public partial class MainViewModel : ViewModelBase
                 new ToDoItemViewModel() { Content = "Hello" },
                 new ToDoItemViewModel() { Content = "Avalonia", IsChecked = true}
             });
+            ReadyItems = new ObservableCollection<ToDoItemViewModel>(new[]
+{
+                new ToDoItemViewModel() { Content = "Hello" },
+                new ToDoItemViewModel() { Content = "Avalonia", IsChecked = true}
+            });
+
+            WaitingItems = new ObservableCollection<ToDoItemViewModel>(new[]
+{
+                new ToDoItemViewModel() { Content = "Hello" },
+                new ToDoItemViewModel() { Content = "Avalonia", IsChecked = true}
+            });
+            DoneItems = new ObservableCollection<ToDoItemViewModel>(new[]
+{
+                new ToDoItemViewModel() { Content = "Hello" },
+                new ToDoItemViewModel() { Content = "Avalonia", IsChecked = true}
+            });
         }
     }
     
@@ -30,10 +46,13 @@ public partial class MainViewModel : ViewModelBase
     /// Gets a collection of <see cref="ToDoItem"/> which allows adding and removing items
     /// </summary>
     public ObservableCollection<ToDoItemViewModel> ToDoItems { get; } = new ObservableCollection<ToDoItemViewModel>();
+    public ObservableCollection<ToDoItemViewModel> ReadyItems { get; } = new ObservableCollection<ToDoItemViewModel>();
+    public ObservableCollection<ToDoItemViewModel> WaitingItems { get; } = new ObservableCollection<ToDoItemViewModel>();
+    public ObservableCollection<ToDoItemViewModel> DoneItems { get; } = new ObservableCollection<ToDoItemViewModel>();
 
-    
+
     // -- Adding new Items --
-    
+
     /// <summary>
     /// This command is used to add a new Item to the List
     /// </summary>
