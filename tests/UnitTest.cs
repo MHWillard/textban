@@ -37,5 +37,20 @@ namespace tests
             Assert.Contains(TaskItem, ReadyItems);
             Assert.DoesNotContain(TaskItem, ToDoItems);
         }
+
+        [AvaloniaFact]
+        public void ShouldDragDropItem()
+        {
+            //Arrange
+            //--set up: window, drop downs, text blocks with to-dos, items lists
+
+            //Act
+            //-dragn text block to overall panel containing other list
+            //-trip moveitemtoTaskList
+
+            //Assert
+            //--assert that ready list ui and list contains added item
+            //--assert that backlog ui and list does not have the added item
+        }
     }
 }
