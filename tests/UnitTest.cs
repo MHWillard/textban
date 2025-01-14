@@ -6,6 +6,7 @@ using Xunit;
 using textban.Models;
 using textban.ViewModels;
 using textban.Services;
+using Avalonia.Layout;
 
 namespace tests
 {
@@ -39,10 +40,30 @@ namespace tests
         }
 
         [AvaloniaFact]
-        public void ShouldDragDropItem()
+        public void ShouldDragDropTextBlock()
         {
             //Arrange
-            //--set up: window, drop downs, text blocks with to-dos, items lists
+            //start simple: window, two boxes, text block in each box, the test is to drag one to the other to begin with
+            // => TO HELP WITH TESTING: need a general WPF reference since Avaolinua builds off of that
+            //use unit tests => solve simpler problems => build on top of that
+
+            var TextOne = new TextBlock { Text = "Foo" };
+            var TextTwo = new TextBlock { Text = "Bar" };
+            var ListBoxOne = new ListBox();
+            var ListBoxTwo = new ListBox();
+            List<TextBlock> items = new List<TextBlock>();
+            List<TextBlock> itemsTwo = new List<TextBlock>();
+            items.Add(TextOne);
+            itemsTwo.Add(TextTwo);
+            ListBoxOne.ItemsSource = items;
+            ListBoxTwo.ItemsSource = itemsTwo;
+
+            var window = new Window
+            {
+                Width = 200,
+                Height = 300,
+                Content = TextOne
+            };
 
             //Act
             //-dragn text block to overall panel containing other list

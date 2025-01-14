@@ -20,7 +20,7 @@ public partial class MainWindow : Window
 
         SetupDnd(DragMeCustom, d => d.Set(CustomFormat, "Some Custom Data Here"), DragDropEffects.Move);
 
-        HideAllChildren();
+        //HideAllChildren();
     }
 
     private const string CustomFormat = "application/xxx-drag-custom";
