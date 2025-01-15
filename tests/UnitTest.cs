@@ -32,7 +32,7 @@ namespace tests
             ListManipulationService ListService = new ListManipulationService();
 
             //Act
-            ListService.moveItemToTaskList(TaskItem, ToDoItems, ReadyItems);
+            ListService.moveItemToTaskList(TaskItem, ReadyItems, ToDoItems);
 
             //Assert
             Assert.Contains(TaskItem, ReadyItems);
@@ -62,16 +62,18 @@ namespace tests
             {
                 Width = 200,
                 Height = 300,
-                Content = TextOne
+                Content = ListBoxOne
             };
 
             //Act
             //-dragn text block to overall panel containing other list
             //-trip moveitemtoTaskList
+            window.Show();
 
             //Assert
             //--assert that ready list ui and list contains added item
             //--assert that backlog ui and list does not have the added item
+            Assert.Contains(TextOne, ListBoxOne.Items);
         }
     }
 }
