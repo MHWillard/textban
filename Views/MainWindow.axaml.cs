@@ -14,9 +14,7 @@ public partial class MainWindow : Window
 
         var textCount = 0;
 
-        SetupDnd(DragMeText, d => d.Set(DataFormats.Text,
-                $"Text was dragged {++textCount} times."),
-            DragDropEffects.Copy | DragDropEffects.Move | DragDropEffects.Link);
+        //SetupDnd(DragMeText, d => d.Set(DataFormats.Text,$"Text was dragged {++textCount} times."),DragDropEffects.Copy | DragDropEffects.Move | DragDropEffects.Link);
 
         SetupDnd(DragMeCustom, d => d.Set(CustomFormat, "Some Custom Data Here"), DragDropEffects.Move);
 

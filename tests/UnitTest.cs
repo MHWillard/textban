@@ -44,13 +44,16 @@ namespace tests
         {
             //Arrange
             //start simple: window, two boxes, text block in each box, the test is to drag one to the other to begin with
-            // => TO HELP WITH TESTING: need a general WPF reference since Avaolinua builds off of that
+            // => TO HELP WITH TESTING: need a general WPF reference since Avaolinua builds off of that: use these when creating the code for these tests
             //use unit tests => solve simpler problems => build on top of that
+            //the test is: can I drag an item from an Items control to another, and will it update the lists accordingly?
+            //create itemcontrols, create your lists, add them to the controls, then put them in a box, build, verify
+            //then set up a drag function to test
 
             var TextOne = new TextBlock { Text = "Foo" };
             var TextTwo = new TextBlock { Text = "Bar" };
-            var ListBoxOne = new ListBox();
-            var ListBoxTwo = new ListBox();
+            var BacklogItemsControl = new ItemsControl();
+            var ReadyItemsControl = new ItemsControl();
             List<TextBlock> items = new List<TextBlock>();
             List<TextBlock> itemsTwo = new List<TextBlock>();
             items.Add(TextOne);
