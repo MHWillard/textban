@@ -40,32 +40,37 @@ namespace tests
         }
 
         [AvaloniaFact]
-        public void ShouldDragDropTextBlock()
+        public void ItemsControlsShouldAppear()
         {
             //Arrange
             //start simple: window, two boxes, text block in each box, the test is to drag one to the other to begin with
-            // => TO HELP WITH TESTING: need a general WPF reference since Avaolinua builds off of that: use these when creating the code for these tests
-            //use unit tests => solve simpler problems => build on top of that
-            //the test is: can I drag an item from an Items control to another, and will it update the lists accordingly?
-            //create itemcontrols, create your lists, add them to the controls, then put them in a box, build, verify
-            //then set up a drag function to test
 
-            var TextOne = new TextBlock { Text = "Foo" };
-            var TextTwo = new TextBlock { Text = "Bar" };
+            StackPanel stackPanel = new StackPanel();
             var BacklogItemsControl = new ItemsControl();
             var ReadyItemsControl = new ItemsControl();
-            List<TextBlock> items = new List<TextBlock>();
-            List<TextBlock> itemsTwo = new List<TextBlock>();
-            items.Add(TextOne);
-            itemsTwo.Add(TextTwo);
-            ListBoxOne.ItemsSource = items;
-            ListBoxTwo.ItemsSource = itemsTwo;
+            List<TextBlock> itemsOne = new List<TextBlock>
+            {
+                new TextBlock { Text = "Item 1.1" },
+                new TextBlock { Text = "Item 1.2" },
+                new TextBlock { Text = "Item 1.3" }
+            };
+            List<TextBlock> itemsTwo = new List<TextBlock>
+            {
+                new TextBlock { Text = "Item 2.1" },
+                new TextBlock { Text = "Item 2.2" },
+                new TextBlock { Text = "Item 2.3" }
+            };
+            BacklogItemsControl.ItemsSource = itemsOne;
+            ReadyItemsControl.ItemsSource = itemsTwo;
+
+            stackPanel.Children.Add(BacklogItemsControl);
+            stackPanel.Children.Add(ReadyItemsControl);
 
             var window = new Window
             {
                 Width = 200,
                 Height = 300,
-                Content = ListBoxOne
+                Content = stackPanel
             };
 
             //Act
@@ -76,7 +81,60 @@ namespace tests
             //Assert
             //--assert that ready list ui and list contains added item
             //--assert that backlog ui and list does not have the added item
-            Assert.Contains(TextOne, ListBoxOne.Items);
+            var findStackPanel = window.FindControl<StackPanel>;
+            Assert.NotNull(findStackPanel);
+        }
+
+        [AvaloniaFact]
+        public void ItemsShouldDragBetweenControls()
+        {
+            //Arrange
+            //start simple: window, two boxes, text block in each box, the test is to drag one to the other to begin with
+            // => TO HELP WITH TESTING: need a general WPF reference since Avaolinua builds off of that: use these when creating the code for these tests
+            //use unit tests => solve simpler problems => build on top of that
+            //the test is: can I drag an item from an Items control to another, and will it update the lists accordingly?
+            //create itemcontrols, create your lists, add them to the controls, then put them in a box, build, verify
+            //then set up a drag function to test
+
+            StackPanel stackPanel = new StackPanel();
+            var BacklogItemsControl = new ItemsControl();
+            var ReadyItemsControl = new ItemsControl();
+            List<TextBlock> itemsOne = new List<TextBlock>
+            {
+                new TextBlock { Text = "Item 1.1" },
+                new TextBlock { Text = "Item 1.2" },
+                new TextBlock { Text = "Item 1.3" }
+            };
+            List<TextBlock> itemsTwo = new List<TextBlock>
+            {
+                new TextBlock { Text = "Item 2.1" },
+                new TextBlock { Text = "Item 2.2" },
+                new TextBlock { Text = "Item 2.3" }
+            };
+            BacklogItemsControl.ItemsSource = itemsOne;
+            ReadyItemsControl.ItemsSource = itemsTwo;
+
+            stackPanel.Children.Add(BacklogItemsControl);
+            stackPanel.Children.Add(ReadyItemsControl);
+
+            var window = new Window
+            {
+                Width = 200,
+                Height = 300,
+                Content = stackPanel
+            };
+
+            //Act
+            window.Show();
+            //mouse down on item 2.1
+            //drag it to itemsOne
+            //release
+
+            //Assert
+            //--assert that ready list ui and list contains added item
+            //--assert that backlog ui and list does not have the added item
+            var findStackPanel = window.FindControl<StackPanel>;
+            Assert.NotNull(findStackPanel);
         }
     }
 }
